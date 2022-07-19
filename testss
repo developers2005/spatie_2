@@ -1,0 +1,45 @@
+start with laravel breeeze
+for version 8  - composer require laravel/breeze:1.9.2 
+composer require laravel/breeze --dev
+php artisan breeze:install
+ 
+npm install
+npm run dev
+
+https://laravel.com/docs/9.x/starter-kits
+
+
+now install spatie
+
+composer require spatie/laravel-permission
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+php artisan optimize:clear
+php artisan migrate
+
+now follow this https://spatie.be/docs/laravel-permission/v5/basic-usage/basic-usage
+
+add in karnal
+'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
+
+
+ready
+
+now start
+
+make seeder some changes in seeder
+assign in dbseeder -   $this->call(RoleSeeder::class);
+        $this->call(AdminSeeder::class);
+
+php artisan migrate:fresh --seed
+
+route web added role:admin it is related to kernal.php role
+
+navbar copy from here - https://www.alpinetoolbox.com/examples/
+and paste it in layout admin
+npm run watch
+
+
+1:24:25
+
